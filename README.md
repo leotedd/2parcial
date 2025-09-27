@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# SPA Gestión de Productos (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación tipo SPA para gestionar productos (listar, crear, editar y eliminar) usando la API de [dummyjson.com](https://dummyjson.com).  
+Desarrollado con React, Vite, TailwindCSS y React Router.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 En vivo
 
-## React Compiler
+La aplicación está desplegada en Netlify:  
+https://lambent-sable-4b1076.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tecnologías usadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React  
+- Vite  
+- TypeScript  
+- TailwindCSS  
+- React Router  
+- Fetch API  
+- Netlify (para el deploy)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Instalación local
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clona el repositorio:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+git clone https://github.com/leotedd/2parcial.git
+cd 2parcial
+Instala dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+Levanta el servidor de desarrollo:
+
+npm run dev
+
+
+Abre http://localhost:5173 en tu navegador.
+
+📦 Build de producción
+
+Para construir la aplicación lista para desplegar:
+
+npm run build
+
+
+Genera una carpeta dist/ con los archivos finales.
+
+Para previsualizar localmente:
+
+npm run preview
+
+🧩 Endpoints usados (DummyJSON)
+
+GET /products?limit=<num>&skip=<num>: Obtener lista de productos
+
+POST /products/add: Crear nuevo producto
+
+PATCH /products/:id: Actualizar un producto
+
+DELETE /products/:id: Eliminar un producto
+
+Nota: DummyJSON simula cambios pero no los persiste realmente.
+
+🚀 Deploy en Netlify
+
+Ejecutar npm run build
+
+En Netlify, conectar el repositorio GitHub
+
+Configurar:
+
+Build command: npm run build
+
+Publish directory: dist
+
+Agregar archivo public/_redirects con:
+
+/*  /index.html  200
+
+
+Esto garantiza que las rutas internas funcionen correctamente.
+
+👀 Capturas de pantalla
+
+Si deseas, puedes agregar capturas dentro de la carpeta assets y referenciarlas así:
+
+### Lista de productos  
+![Lista de productos](src/assets/captura-home.png)
+
+### Formulario nuevo producto  
+![Formulario](src/assets/captura-nuevo.png)
+
+🤝 Créditos
+
+Hecho por LeoTedd como parte del proyecto de laboratorio.
+API usada: dummyjson.com

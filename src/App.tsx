@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import NewProduct from './pages/NewProduct'
@@ -11,7 +10,12 @@ export default function App() {
         <nav className="bg-white border-b">
           <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
             <Link to="/" className="font-semibold">Laboratorio · Productos</Link>
-            <a className="text-sm text-blue-600 underline" href="https://dummyjson.com" target="_blank" rel="noreferrer">
+            <a
+              className="text-sm text-blue-600 underline"
+              href="https://dummyjson.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               API: dummyjson.com
             </a>
           </div>
